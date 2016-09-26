@@ -53,15 +53,15 @@ return [
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'port'      => '',
-            'database'  => 'database',
-            'username'  => 'root',
-            'password'  => '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
+            'driver'    => 'mysql',//数据库类型
+            'host'      => 'localhost',//主机地址
+            'port'      => '',//数据库端口
+            'database'  => 'database',//数据库名称
+            'username'  => 'root',//用户名
+            'password'  => 'root',//密码
+            'charset'   => 'utf8',//数据库字符集
+            'collation' => 'utf8_unicode_ci',//数据库校验字符集
+            'prefix'    => '',//表前缀
         ],
 
         'pgsql' => [
@@ -116,12 +116,7 @@ return [
 
         'cluster' => false,
 
-        'default' => [
-            'host'     => '127.0.0.1',
-            'password' => null,
-            'port'     => 6379,
-            'database' => 0,
-        ],
+        'default' => 'sqlite',
 
     ],
 

@@ -1,65 +1,117 @@
-<p align="center">
-    <img src="https://github.com/octobercms/october/blob/master/themes/demo/assets/images/october.png?raw=true" alt="October" width="25%" height="25%" />
-</p>
 
-[October](http://octobercms.com) is a Content Management System (CMS) and web platform whose sole purpose is to make your development workflow simple again. It was born out of frustration with existing systems. We feel building websites has become a convoluted and confusing process that leaves developers unsatisfied. We want to turn you around to the simpler side and get back to basics.
-
-October's mission is to show the world that web development is not rocket science.
+WindCms是一套基于October,Laravel 二次开发，简单易用的CMS，通过简单的配置后开箱即可使用。
 
 [![Build Status](https://travis-ci.org/octobercms/october.svg?branch=develop)](https://travis-ci.org/octobercms/october)
 [![License](https://poser.pugx.org/october/october/license.svg)](https://packagist.org/packages/october/october)
 
-### Learning October
+### 学习使用WindCms
 
-The best place to learn October is by [reading the documentation](http://octobercms.com/docs) or [following some tutorials](http://octobercms.com/support/articles/tutorials).
+英文文档，请参照[october](http://octobercms.com/docs)
+中文文档，正在完善中。
 
-You may also watch these introductory videos for [beginners](https://vimeo.com/79963873) and [advanced users](https://vimeo.com/172202661).
+### 安装使用
 
-### Installing October
+1. 下载WindCms并解压
 
-Instructions on how to install October can be found at the [installation guide](http://octobercms.com/docs/setup/installation).
+   ```
+   curl -o WindCms.zip https://codeload.github.com/bestchu/WindCms/zip/master
+   ```
 
-### Quick start installation
+2. 解压文件到指定目录
+   ```
+   unzip WindCms.zip -d WindCms
+   ```
 
-For advanced users, run this in your terminal to install October from command line:
+3. 进入WindCms目录
 
-```shell
-php -r "eval('?>'.file_get_contents('https://octobercms.com/api/installer'));"
-```
+   ```
+   cd WindCms/WindCms-master/
+   ```
 
-If you plan on using a database, run this command:
+4. 安装系统依赖包,composer安装使用请参照[composer中文网](http://docs.phpcomposer.com/)
 
-```shell
-php artisan october:install
-```
+   ```
+   composer update
+   ```
 
-### Development Team
+5. 配置PHP 命令行工具
 
-October was created by [Alexey Bobkov](http://ca.linkedin.com/pub/aleksey-bobkov/2b/ba0/232) and [Samuel Georges](http://au.linkedin.com/pub/sam-georges/31/641/a9), who both continue to develop the platform.
+   ```
+   #修改php.cmd文件中的 G:\phpStudy\php55n\php.exe 文你的项目需要使用的php版本文件路径
+   ```
 
-### Foundation library
+6. 为应用程序生成新的key
 
-The CMS uses [Laravel](http://laravel.com) as a foundation PHP framework.
+   ```
+   php artisan key:generate
+   ```
 
-### Contact
+7. 配置数据库连接方式
 
-You can communicate with us using the following mediums:
+   ```
+   #编辑config/database.php文件，配置需要使用的数据库连接方式
+   'connections' => [
+     '配置名称' => [
+       //配置选项
+       'driver'    => 'mysql',//数据库类型
+       'host'      => 'localhost',//主机地址
+       'port'      => '',//数据库端口
+       'database'  => 'database',//数据库名称
+       'username'  => 'root',//用户名
+       'password'  => 'root',//密码
+       'charset'   => 'utf8',//数据库字符集
+       'collation' => 'utf8_unicode_ci',//数据库校验字符集
+       'prefix'    => '',//表前缀
+     ]
+   ]
+   # 配置 default 为数据库配置名称
+   'default' => '配置名称'
+   ```
 
-* [Follow us on Twitter](http://twitter.com/octobercms) for announcements and updates.
-* [Follow us on Facebook](http://facebook.com/octobercms) for announcements and updates.
-* [Join us on IRC](http://octobercms.com/chat) to chat with us.
+8. 还原填充数据库
+
+   ```
+   php artisan october:up
+   ```
+
+9. 启动Web Server
+
+   ```
+   php -S localhost:8080 server.php
+   ```
+
+10. 访问Cms管理后台 [http://localhost:8080/backend](http://localhost:8080/backend)
+
+   ```
+   #默认用户名 admin
+   #默认密码 admin
+   ```
+
+### 开发学习
+
+> 二次开发，请先学习laravel框架，中文学习文档地址：[laravel中文网](http://www.golaravel.com/)
+>
+>    开发索引
+>
+> 1. [Ajax开发](http://octobercms.com/docs/cms/ajax)
+>
+> 2. 模板 [语法](http://octobercms.com/docs/markup/templating) ,更多语法请参照[twig模板引擎语法](docs/template/twig.md)
+>
+
+### 联系我
+
+你能通过以下方式联系到我:
+
+* [QQ](tencent://message/?uin=419412545&Site=github.com&Menu=yes) 419412545
+* [邮箱](mail://newi@qq.com) newi@qq.com
 
 ### License
 
-The OctoberCMS platform is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+请遵循october开源许可 [MIT license](http://opensource.org/licenses/MIT).
 
-### Contributing
+### 编码规范
 
-Before sending a Pull Request, be sure to review the [Contributing Guidelines](CONTRIBUTING.md) first.
-
-### Coding standards
-
-Please follow the following guides and code standards:
+请遵循以下编码规范
 
 * [PSR 4 Coding Standards](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md)
 * [PSR 2 Coding Style Guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)

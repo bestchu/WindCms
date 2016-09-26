@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'key' => 'CHANGE_ME!!!!!!!!!!!!!!!!!!!!!!!',
+    'key' => 'L3UrvIMWVbpS3QrYgcz8MubAhmiWHWYv',
 
     'cipher' => 'AES-256-CBC',
 
@@ -116,6 +116,8 @@ return [
         // 'Illuminate\Html\HtmlServiceProvider', // Example
 
         'System\ServiceProvider',
+        //ide提示工具
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
     ]),
 
     /*

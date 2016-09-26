@@ -30,7 +30,8 @@
         "october/backend": "~1.0",
         "october/cms": "~1.0",
         "laravel/framework": "5.1.*",
-        "wikimedia/composer-merge-plugin": "dev-master"
+        "wikimedia/composer-merge-plugin": "dev-master",
+        "barryvdh/laravel-ide-helper": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -47,6 +48,11 @@
     "scripts": {
         "post-create-project-cmd": [
             "php artisan key:generate"
+        ],
+        "post-update-cmd":[
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
+            "php artisan optimize"
         ]
     },
     "config": {
@@ -62,6 +68,12 @@
             "recurse": true,
             "replace": false,
             "merge-dev": false
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
         }
     }
 }
